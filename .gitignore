@@ -4,6 +4,7 @@ micro/buffers/
 micro/backup/
 omf/
 fish/fish_variables
+fish/completions/
 htop/
 micro/
 mapps/
