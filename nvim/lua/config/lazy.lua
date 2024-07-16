@@ -22,6 +22,11 @@ require("lazy").setup({
         { import = "plugins" },
     },
     install = { colorscheme = { "gruvbox" } },
-    checker = { enabled = true },
+    checker = {
+        enabled = true,
+        notify = false,
+        frequency = 86400,
+    },
 })
 
+vim.keymap.set("n", "<leader>ll", "<cmd>Lazy<CR>", { desc = "open the lazy plugin manager" })
