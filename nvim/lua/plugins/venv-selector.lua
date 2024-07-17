@@ -12,6 +12,14 @@ return {
         require("venv-selector").setup()
         vim.keymap.set("n", "<leader>vs", "<cmd>VenvSelect<CR>", { desc = "open menu to select venv" })
     end,
+    opts = {
+        settings = {
+            options = {
+                notify_user_on_venv_activation = true,
+            }
+        }
+    },
+    ft = "python",
     keys = {
         { "<leader>vs", "<cmd>VenvSelect<cr>" },
     },
