@@ -11,7 +11,7 @@ vim.keymap.set("n", "N", "Nzzzv")
 
 vim.keymap.set("n", "<leader>zig", "<cmd>LspRestart<cr>")
 
-vim.keymap.set({ "n", "x" }, "<leader>p", [["0p]], { desc = "paste from yank register" })
+vim.keymap.set({ "n", "x" }, "<leader>pp", [["0p]], { desc = "paste from yank register" })
 
 vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
 vim.keymap.set("n", "<leader>Y", [["+Y]])
