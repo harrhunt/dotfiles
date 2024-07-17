@@ -15,7 +15,7 @@ return {
                         "--host",
                         "0.0.0.0",
                     },
-                    console = "internalConsole",
+                    console = "integratedTerminal",
                 },
             }
             vim.keymap.set("n", "<F10>", "<cmd>lua require'dap'.step_over()<CR>")
