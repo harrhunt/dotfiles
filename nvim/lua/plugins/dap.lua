@@ -70,7 +70,7 @@ return {
             "rcarriga/nvim-dap-ui",
         },
         ft = { "python" },
-        config = function ()
+        config = function()
             require("dap-python").setup()
         end,
     },

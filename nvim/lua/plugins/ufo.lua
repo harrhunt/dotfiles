@@ -5,7 +5,7 @@ return {
     init = function()
         vim.o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
         vim.o.foldcolumn = "0" -- '0' is not bad
-        vim.o.foldlevel = 99 -- Using ufo provider need a large value, feel free to decrease the value
+        vim.o.foldlevel = 99   -- Using ufo provider need a large value, feel free to decrease the value
         vim.o.foldlevelstart = 99
         vim.o.foldenable = true
     end,
@@ -24,7 +24,7 @@ return {
                 else
                     chunkText = truncate(chunkText, targetWidth - curWidth)
                     local hlGroup = chunk[2]
-                    table.insert(newVirtText, {chunkText, hlGroup})
+                    table.insert(newVirtText, { chunkText, hlGroup })
                     chunkWidth = vim.fn.strdisplaywidth(chunkText)
                     -- str width returned from truncate() may less than 2nd argument, need padding
                     if curWidth + chunkWidth < targetWidth then
@@ -34,7 +34,7 @@ return {
                 end
                 curWidth = curWidth + chunkWidth
             end
-            table.insert(newVirtText, {suffix, 'MoreMsg'})
+            table.insert(newVirtText, { suffix, 'MoreMsg' })
             return newVirtText
         end
         require("ufo").setup({
@@ -44,7 +44,7 @@ return {
             end,
             open_fold_hl_timeout = 400,
             close_fold_kinds_for_ft = {
-                default = {"imports", "comment"},
+                default = { "imports", "comment" },
                 json = { "array" },
                 c = { "comment", "region" },
             },

@@ -1,8 +1,8 @@
 return {
     {
-    "nvim-neorg/neorg",
-    lazy = false,
-    version = "*",
-    config = true,
-  },
+        "nvim-neorg/neorg",
+        lazy = false,
+        version = "*",
+        config = true,
+    },
 }

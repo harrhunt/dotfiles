@@ -17,7 +17,6 @@ return {
 
         local cmp_lsp = require("cmp_nvim_lsp")
         local capabilities = vim.tbl_deep_extend(
-
             "force",
             {},
             vim.lsp.protocol.make_client_capabilities(),
@@ -42,7 +41,6 @@ return {
                 end,
 
                 zls = function()
-
                     local lspconfig = require("lspconfig")
                     lspconfig.zls.setup({
                         root_dir = lspconfig.util.root_pattern(".git", "build.zig", "zls.json"),
@@ -56,7 +54,6 @@ return {
                     })
                     vim.g.zig_fmt_parse_errors = 0
                     vim.g.zig_fmt_autosave = 0
-
                 end,
                 ["lua_ls"] = function()
                     local lspconfig = require("lspconfig")
@@ -78,7 +75,7 @@ return {
                         }
                     }
                 end,
-                pylsp = function ()
+                pylsp = function()
                     local lspconfig = require("lspconfig")
                     lspconfig.pylsp.setup {
                         settings = {

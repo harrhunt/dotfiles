@@ -26,5 +26,5 @@ return {
         end,
     },
     { "nvim-tree/nvim-web-devicons", lazy = true },
-    { "stevearc/dressing.nvim", event = "VeryLazy" },
+    { "stevearc/dressing.nvim",      event = "VeryLazy" },
 }
