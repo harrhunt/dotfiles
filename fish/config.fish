@@ -3,11 +3,13 @@ if status is-interactive
 end
 
 # ALIASES
-alias ls="lsd"
-alias l='ls -l'
-alias la='ls -a'
-alias lla='ls -la'
-alias lt='ls --tree'
+if type -q lsd
+    alias ls="lsd"
+    alias l='ls -l'
+    alias la='ls -a'
+    alias lla='ls -la'
+    alias lt='ls --tree'
+end
 
 if type -q nvim
     alias vim="nvim"
