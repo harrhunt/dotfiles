@@ -31,6 +31,7 @@ return {
                 "jinja_lsp",
                 "ruff_lsp",
                 "pylsp",
+                "taplo",
             },
             handlers = {
                 function(server_name) -- default handler (optional)
