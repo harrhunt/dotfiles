@@ -1,82 +1,140 @@
-# Don't print a new line at the start of the prompt
-add_newline = false
+# ~/.config/starship.toml
 
-# Use custom format
-format = """
-[╭─](white)$username$hostname in $directory$package$java$python$git_branch$battery$cmd_duration
-[╰─](white)$character """
+palette = "srcery"
 
-# Wait 10 milliseconds for starship to check files under the current directory.
-scan_timeout = 10
+[palettes.srcery]
+black = "#1C1B19"
+bright-black = "#918175"
+red = "#EF2F27"
+bright-red = "#F75341"
+green = "#519F50"
+bright-green = "#98BC37"
+yellow = "#FBB829"
+bright-yellow = "#FED06E"
+blue = "#2C78BF"
+bright-blue = "#68A8E4"
+purple = "#E02C6D"
+bright-purple = "#FF5C8F"
+cyan = "#0AAEB3"
+bright-cyan = "#2BE4D0"
+white = "#BAA67F"
+bright-white = "#FCE8C3"
 
-# Username settings
-[username]
-show_always = true
-style_root = "bold red"
-style_user = "bold yellow"
-format = "[$user]($style) "
-disabled = false
+[palettes.dimmed_monokai]
+black = "#3A3D43"
+bright-black = "#888987"
+red = "#BE3F48"
+bright-red = "#FB001F"
+green = "#879A3B"
+bright-green = "#0F722F"
+yellow = "#C5A635"
+bright-yellow = "#C47033"
+blue = "#4F76A1"
+bright-blue = "#186DE3"
+purple = "#855C8D"
+bright-purple = "#FB0067"
+cyan = "#578FA4"
+bright-cyan = "#2E706D"
+white = "#B9BCBA"
+bright-white = "#FDFFB9"
 
-# Hostname settings
-[hostname]
-ssh_only = false
-format =  "on [$hostname](bold red)"
-trim_at = ".companyname.com"
-disabled = false
-
-# Directory indicator
-[directory]
-read_only = "🔒"
-style = "bold cyan"
-read_only_style = "red"
-truncation_length = 8
-truncation_symbol = "…/"
-format = "[$read_only]($read_only_style)[$path]($style) "
-disabled = false
-
-# Package Version Config
-[package]
-format = "via [🎁 $version](208 bold) "
-
-# Java settings
-[java]
-symbol = "☕ "
-style = "red dimmed"
-format = "via [${symbol}${version}]($style) "
-
-# Python settings
-[python]
-symbol = "🐍 "
-style = "yellow bold"
-python_binary = "python3"
-pyenv_version_name = true
-
-# git settings
-[git_branch]
-symbol = "🌱 "
-truncation_length = 4
-truncation_symbol = ""
-
-# Battery information
 [battery]
-full_symbol = "🔋"
-charging_symbol = "⚡️"
-discharging_symbol = "💀"
+full_symbol = "󰁹"
+charging_symbol = ""
+discharging_symbol = "󱐋"
 
 [[battery.display]]
-threshold = 10
+threshold = 30
 style = "bold red"
 
-# cmd_duration config
-[cmd_duration]
-show_milliseconds = true
-style = "bold yellow"
-format = "took [$duration]($style)"
-
-# Charakter config
 [character]
-format = "$symbol"
-success_symbol = "[❯](bold green)"
-error_symbol = "[✗](bold red) "
-vicmd_symbol = "[❮](bold green)"
+error_symbol = "[](bold red)"
+success_symbol = "[](bold green)"
+
+[cmd_duration]
+min_time = 10_000                    # Show command duration over 10,000 milliseconds (=10 sec)
+format = "took [$duration]($style) "
+
+[directory]
+read_only = "  "
+truncate_to_repo = true
+repo_root_format = "[]($before_repo_root_style)[$repo_root]($repo_root_style)[$path]($style)[$read_only]($read_only_style) "
+before_repo_root_style = "bold cyan"
+repo_root_style = "bold bright-blue"
+truncation_length = 8
+truncation_symbol = " /"
+format = "[$path]($style)[$read_only]($read_only_style) "
+style = "bold bright-white"
+read_only_style = "bold yellow"
+
+[git_branch]
+format = "[$symbol$branch]($style) "
+symbol = ""
+style = "bold green"
+
+[git_commit]
+commit_hash_length = 8
+style = "bold white"
+
+[git_state]
+format = '[\($state( $progress_current of $progress_total)\)]($style) '
+
+[git_status]
+conflicted = "[󰞇 ](bold red) "
+ahead = "[ ](bold green)×${count} "
+behind = "[ ](bold red)×${count} "
+diverged = "[ ](bold white)[](bold green)×${ahead_count} [](bold red)×${behind_count}"
+untracked = "[󱜳 ](bold red)×${count} "
+stashed = "  "
+modified = "[](bold yellow)×${count} "
+staged = "[ ](bold green)×${count} "
+renamed = "[󰑕 ](bold yellow)×${count} "
+deleted = "[ ](bold red)×${count} "
+# style = "bright-white"
+format = '\[$all_status$ahead_behind\] '
+
+[hostname]
+ssh_only = true
+format = "<[$hostname]($style)> "
+trim_at = "-"
+style = "bold white"
 disabled = false
+
+[julia]
+format = "[$symbol$version]($style) "
+symbol = " "
+style = "bold green"
+
+[memory_usage]
+format = "$symbol[${ram}( | ${swap})]($style) "
+threshold = 70
+style = "bold white"
+disabled = false
+
+[package]
+disabled = true
+
+[python]
+format = "[ $version]($style) "
+style = "bold green"
+
+[rust]
+format = "[$symbol$version]($style) "
+style = "bold green"
+
+[time]
+time_format = "%T"
+format = " $time($style) "
+style = "bright-white"
+disabled = false
+
+[typst]
+format = "[$symbol($version)]($style) "
+style = "bold #239dae"
+
+[username]
+style_user = "bold dimmed blue"
+show_always = false
+
+[nodejs]
+format = "via [ $version](bold green) "
