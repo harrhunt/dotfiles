@@ -1,7 +1,15 @@
 return {
     {
-        "daschw/leaf.nvim",
+        "srcery-colors/srcery-vim",
         lazy = false,
+        name = "srcery",
+        config = function()
+            -- require("srcery-vim").setup()
+            vim.cmd("colorscheme srcery")
+        end,
+    },
+    {
+        "daschw/leaf.nvim",
         config = function()
             require("leaf").setup({
                 underlineStyle = "underline",
@@ -17,7 +25,6 @@ return {
                 theme = "auto",
                 contrast = "medium",
             })
-            vim.cmd("colorscheme leaf")
         end,
     },
     {
@@ -25,15 +32,15 @@ return {
         name = "rose-pine",
         config = function()
             require("rose-pine").setup({
-                variant = "auto",          -- auto, main, moon, or dawn
-                dark_variant = "main",     -- main, moon, or dawn
+                variant = "auto",      -- auto, main, moon, or dawn
+                dark_variant = "main", -- main, moon, or dawn
                 dim_inactive_windows = true,
                 extend_background_behind_borders = true,
 
                 enable = {
                     terminal = true,
-                    legacy_highlights = true,     -- Improve compatibility for previous versions of Neovim
-                    migrations = true,            -- Handle deprecated options automatically
+                    legacy_highlights = true, -- Improve compatibility for previous versions of Neovim
+                    migrations = true,        -- Handle deprecated options automatically
                 },
 
                 styles = {
@@ -109,7 +116,7 @@ return {
         lazy = false,
         config = function()
             require("gruvbox").setup({
-                terminal_colors = true,     -- add neovim terminal colors
+                terminal_colors = true, -- add neovim terminal colors
                 undercurl = true,
                 underline = true,
                 bold = true,
@@ -125,8 +132,8 @@ return {
                 invert_signs = false,
                 invert_tabline = false,
                 invert_intend_guides = false,
-                inverse = true,     -- invert background for search, diffs, statuslines and errors
-                contrast = "",      -- can be "hard", "soft" or empty string
+                inverse = true, -- invert background for search, diffs, statuslines and errors
+                contrast = "",  -- can be "hard", "soft" or empty string
                 palette_overrides = {
                     dark0 = "#1f1f1f",
                     dark1 = "#282828",

@@ -21,7 +21,7 @@ require("lazy").setup({
     spec = {
         { import = "plugins" },
     },
-    install = { colorscheme = { "leaf" } },
+    install = { colorscheme = { "srcery" } },
     change_detection = {
         notify = false,
     },
