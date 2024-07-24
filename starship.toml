@@ -110,6 +110,7 @@ format = "$symbol[${ram}( | ${swap})]($style) "
 threshold = 70
 style = "bold white"
 disabled = false
+symbol = " "
 
 [package]
 disabled = true
