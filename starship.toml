@@ -61,7 +61,7 @@ truncate_to_repo = true
 repo_root_format = "[$repo_root]($repo_root_style)[$path]($style)[$read_only]($read_only_style) "
 repo_root_style = "bold bright-blue"
 truncation_length = 8
-truncation_symbol = " /"
+truncation_symbol = "/"
 format = "[$path]($style)[$read_only]($read_only_style) "
 style = "bold bright-white"
 read_only_style = "bold yellow"
@@ -79,16 +79,16 @@ style = "bold white"
 format = '[\($state( $progress_current of $progress_total)\)]($style) '
 
 [git_status]
-conflicted = "[󰞇 ](bold red) "
-ahead = "[ ](bold green)×${count} "
-behind = "[ ](bold red)×${count} "
-diverged = "[ ](bold white)[](bold green)×${ahead_count} [](bold red)×${behind_count}"
-untracked = "[󱜳 ](bold red)×${count} "
-stashed = "  "
+conflicted = "[󰞇](bold red) "
+ahead = "[](bold green)×${count} "
+behind = "[](bold red)×${count} "
+diverged = "[](bold white)[](bold green)×${ahead_count} [](bold red)×${behind_count}"
+untracked = "[󱜳](bold red)×${count} "
+stashed = " "
 modified = "[](bold yellow)×${count} "
-staged = "[ ](bold green)×${count} "
-renamed = "[󰑕 ](bold yellow)×${count} "
-deleted = "[ ](bold red)×${count} "
+staged = "[](bold green)×${count} "
+renamed = "[󰑕](bold yellow)×${count} "
+deleted = "[](bold red)×${count} "
 # style = "bright-white"
 format = '\[$all_status$ahead_behind\] '
 
@@ -101,7 +101,7 @@ disabled = false
 
 [julia]
 format = "[$symbol$version]($style) "
-symbol = " "
+symbol = ""
 style = "bold green"
 
 [memory_usage]
@@ -109,7 +109,7 @@ format = "$symbol[${ram}( | ${swap})]($style) "
 threshold = 70
 style = "bold white"
 disabled = false
-symbol = " "
+symbol = ""
 
 [package]
 disabled = true
@@ -117,7 +117,7 @@ disabled = true
 [python]
 format = "[${symbol}${pyenv_prefix}(${version} )]($style)[(\\($virtualenv\\))](bold bright-green) "
 style = "bold green"
-symbol = " "
+symbol = ""
 
 [rust]
 format = "[$symbol$version]($style) "
@@ -139,4 +139,4 @@ style_user = "bold yellow"
 show_always = false
 
 [nodejs]
-format = "via [ $version](bold green) "
+format = "via [$version](bold green) "
