@@ -96,10 +96,8 @@ return {
                                     -- type checker
                                     pylsp_mypy = {
                                         enabled = true,
-
                                         report_progress = true,
-
-                                        live_mode = false
+                                        live_mode = true,
                                     },
                                     -- auto-completion options
 
