@@ -14,13 +14,18 @@ end
 if type -q nvim
     alias vim="nvim"
 end
-alias v="vim ."
+if type -q vim
+    alias v="vim ."
+end
 
-function starship_transient_prompt_func
-  starship module character
+
+if type -q starship
+    function starship_transient_prompt_func
+      starship module character
+    end
+    function starship_transient_rprompt_func
+      starship module time
+    end
+    starship init fish | source
+    enable_transience
 end
-function starship_transient_rprompt_func
-  starship module time
-end
-starship init fish | source
-enable_transience
