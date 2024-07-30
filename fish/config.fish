@@ -29,3 +29,7 @@ if type -q starship
     starship init fish | source
     enable_transience
 end
+
+if type -q curl
+    alias dl="curl -OJ"
+end
