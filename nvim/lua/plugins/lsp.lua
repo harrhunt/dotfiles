@@ -32,6 +32,7 @@ return {
                 "ruff_lsp",
                 "pylsp",
                 "taplo",
+                "zls",
             },
             handlers = {
                 function(server_name) -- default handler (optional)

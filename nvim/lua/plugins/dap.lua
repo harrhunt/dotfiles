@@ -18,6 +18,25 @@ return {
                     console = "integratedTerminal",
                 },
             }
+
+            dap.adapters.lldb = {
+                type = "executable",
+                command = "/usr/bin/lldb",
+                name = "lldb",
+            }
+
+            dap.configurations.zig = {
+                {
+                    name = "Launch",
+                    type = "lldb",
+                    request = "launch",
+                    program = "${workspaceFolder}/zig-out/bin/${workspaceFolderBasename}",
+                    cwd = "${workspaceFolder}",
+                    stopOnEntry = false,
+                    args = {},
+                }
+            }
+
             vim.keymap.set("n", "<F10>", "<cmd>lua require'dap'.step_over()<CR>")
             vim.keymap.set("n", "<F11>", "<cmd>lua require'dap'.step_into()<CR>")
             vim.keymap.set("n", "<F12>", "<cmd>lua require'dap'.step_out()<CR>")
