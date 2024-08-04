@@ -1,6 +1,13 @@
 # ~/.config/starship.toml
 
+format = """
+$all$jobs$batter$status$os$container$sudo$line_break\
+$shell$character"""
+
+right_format = """$time"""
+
 palette = "srcery"
+continuation_prompt = "[](bold bright-black)"
 
 [palettes.srcery]
 black = "#1C1B19"
@@ -38,18 +45,91 @@ bright-cyan = "#2E706D"
 white = "#B9BCBA"
 bright-white = "#FDFFB9"
 
+[sudo]
+format = "[$symbol]($style) "
+symbol = "󰮤"
+style = "bold bright-black"
+disabled = false
+
+[shell]
+bash_indicator = ""
+fish_indicator = ""
+zsh_indicator = "󰬇"
+powershell_indicator = "󰨊"
+pwsh_indicator = ""
+ion_indicator = "󰀘"
+elvish_indicator = "󰘧"
+tcsh_indicator = "󰄛"
+xonsh_indicator = "󰬅"
+cmd_indicator = ""
+nu_indicator = ""
+unknown_indicator = ""
+format = "[󰅁$indicator󰅂]($style)"
+style = "bold green"
+disabled = false
+
+[os]
+format = "[](green)[$symbol]($style)[](green) "
+style = "bold fg:bright-white bg:green"
+disabled = true
+
+[os.symbols]
+Alpaquita = ""
+Alpine = ""
+AlmaLinux = ""
+Amazon = ""
+Android = ""
+Arch = ""
+Artix = ""
+CentOS = ""
+Debian = ""
+DragonFly = ""
+Emscripten = ""
+EndeavourOS = ""
+Fedora = ""
+FreeBSD = ""
+Garuda = "󰛓"
+Gentoo = ""
+HardenedBSD = "󰞌"
+Illumos = "󰈸"
+Kali = ""
+Linux = ""
+Mabox = ""
+Macos = ""
+Manjaro = ""
+Mariner = ""
+MidnightBSD = ""
+Mint = ""
+NetBSD = ""
+NixOS = ""
+OpenBSD = "󰈺"
+openSUSE = ""
+OracleLinux = "󰌷"
+Pop = ""
+Raspbian = ""
+Redhat = ""
+RedHatEnterprise = ""
+RockyLinux = ""
+Redox = "󰀘"
+Solus = "󰠳"
+SUSE = ""
+Ubuntu = ""
+Unknown = ""
+Void = ""
+Windows = "󰍲"
+
 [battery]
 full_symbol = "󰁹"
 charging_symbol = ""
 discharging_symbol = "󱐋"
 
 [[battery.display]]
-threshold = 30
+threshold = 35
 style = "bold red"
 
 [character]
-error_symbol = "[](bold red)"
-success_symbol = "[](bold green)"
+error_symbol = '[|>](bold red)'
+success_symbol = "[|>](bold green)"
 
 [cmd_duration]
 min_time = 10_000                    # Show command duration over 10,000 milliseconds (=10 sec)
@@ -59,7 +139,7 @@ format = "took [$duration]($style) "
 read_only = "  "
 truncate_to_repo = true
 repo_root_format = "[$repo_root]($repo_root_style)[$path]($style)[$read_only]($read_only_style) "
-repo_root_style = "bold bright-blue"
+repo_root_style = "bold blue"
 truncation_length = 8
 truncation_symbol = "/"
 format = "[$path]($style)[$read_only]($read_only_style) "
@@ -109,13 +189,13 @@ format = "$symbol[${ram}( | ${swap})]($style) "
 threshold = 70
 style = "bold white"
 disabled = false
-symbol = ""
+symbol = "󰍛"
 
 [package]
 disabled = true
 
 [python]
-format = "[${symbol}${pyenv_prefix}(${version} )]($style)[(\\($virtualenv\\))](bold bright-green) "
+format = "[${symbol}${pyenv_prefix}(${version})]($style)[(|->$virtualenv)](bold bright-green) "
 style = "bold green"
 symbol = ""
 
@@ -130,8 +210,8 @@ version_format = 'v${major}.${minor}.${patch}'
 
 [time]
 time_format = "%T"
-format = " $time($style) "
-style = "bright-white"
+format = "[ $time]($style) "
+style = "bold bright-black"
 disabled = false
 
 [typst]
