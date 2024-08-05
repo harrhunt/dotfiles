@@ -63,6 +63,10 @@ return {
                 end,
                 pylsp = function()
                     local lspconfig = require("lspconfig")
+                    local function mypy_venv()
+                        local virtual = os.getenv("VIRTUAL_ENV") or "/usr"
+                        return { "--python-executable", virtual .. "/bin/python", true }
+                    end
                     lspconfig.pylsp.setup {
                         settings = {
                             pylsp = {
@@ -81,6 +85,7 @@ return {
                                     -- type checker
                                     pylsp_mypy = {
                                         enabled = true,
+                                        overrides = mypy_venv(),
                                         report_progress = true,
                                         live_mode = true,
                                     },
