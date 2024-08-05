@@ -32,7 +32,6 @@ return {
                 "ruff_lsp",
                 "pylsp",
                 "taplo",
-                "zls",
             },
             handlers = {
                 function(server_name) -- default handler (optional)
@@ -42,21 +41,6 @@ return {
                     }
                 end,
 
-                zls = function()
-                    local lspconfig = require("lspconfig")
-                    lspconfig.zls.setup({
-                        root_dir = lspconfig.util.root_pattern(".git", "build.zig", "zls.json"),
-                        settings = {
-                            zls = {
-                                enable_inlay_hints = true,
-                                enable_snippets = true,
-                                warn_style = true,
-                            },
-                        },
-                    })
-                    vim.g.zig_fmt_parse_errors = 0
-                    vim.g.zig_fmt_autosave = 0
-                end,
                 ["lua_ls"] = function()
                     local lspconfig = require("lspconfig")
                     lspconfig.lua_ls.setup {
@@ -118,6 +102,18 @@ return {
             }
         })
 
+        local lspconfig = require("lspconfig")
+        lspconfig.zls.setup({
+            capabilities = capabilities,
+            root_dir = lspconfig.util.root_pattern(".git", "build.zig", "zls.json"),
+            settings = {
+                zls = {
+                    enable_inlay_hints = true,
+                    enable_snippets = true,
+                    warn_style = true,
+                },
+            },
+        })
         local cmp_select = { behavior = cmp.SelectBehavior.Select }
 
         cmp.setup({
@@ -157,5 +153,5 @@ return {
                 prefix = "",
             },
         })
-    end
+    end,
 }
