@@ -195,7 +195,7 @@ symbol = "󰍛"
 disabled = true
 
 [python]
-format = "[${symbol}${pyenv_prefix}(${version})]($style)[(|->$virtualenv)](bold bright-green) "
+format = '[${symbol}${pyenv_prefix}(${version})]($style)[( \($virtualenv\) )](bold bright-green) '
 style = "bold green"
 symbol = ""
 
