@@ -76,3 +76,6 @@ docstring-code-format = false
 # enabled.
 docstring-code-line-length = "dynamic"
 
+[lint.per-file-ignores]
+"tests/*.py" = ["S101"]
+
