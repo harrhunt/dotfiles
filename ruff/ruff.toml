@@ -49,6 +49,10 @@ unfixable = []
 # Allow unused variables when underscore-prefixed.
 dummy-variable-rgx = "^(_+|(_+[a-zA-Z0-9_]*[a-zA-Z0-9]+?))$"
 
+[lint.per-file-ignores]
+"__init__.py" = ["E402"]
+"*test.py" = ["E402", "S101"]
+
 [format]
 # Like Black, use double quotes for strings.
 quote-style = "double"
@@ -75,7 +79,3 @@ docstring-code-format = false
 # This only has an effect when the `docstring-code-format` setting is
 # enabled.
 docstring-code-line-length = "dynamic"
-
-[lint.per-file-ignores]
-"tests/*.py" = ["S101"]
-
