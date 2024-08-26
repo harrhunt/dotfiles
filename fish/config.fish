@@ -33,3 +33,7 @@ end
 if type -q curl
     alias dl="curl -OJ"
 end
+
+# bun
+set --export BUN_INSTALL "$HOME/.bun"
+set --export PATH $BUN_INSTALL/bin $PATH
