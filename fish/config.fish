@@ -34,6 +34,12 @@ if type -q curl
     alias dl="curl -OJ"
 end
 
+if test -e ~/.nvm/nvm.sh
+    if type -q bass
+        bass source ~/.nvm/nvm.sh
+    end
+end
+
 # bun
 set --export BUN_INSTALL "$HOME/.bun"
 set --export PATH $BUN_INSTALL/bin $PATH
