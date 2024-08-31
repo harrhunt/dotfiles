@@ -34,6 +34,7 @@ return {
                     },
                 },
             })
+            vim.keymap.set("i", "<C-D>", "<Plug>(neorg.promo.promote)", { buffer = true })
         end,
     },
 }
