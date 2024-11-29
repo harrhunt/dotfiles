@@ -34,10 +34,8 @@ if type -q curl
     alias dl="curl -OJ"
 end
 
-if test -e ~/.nvm/nvm.sh
-    if type -q bass
-        bass source ~/.nvm/nvm.sh
-    end
+if type -q nvm
+    nvm use latest
 end
 
 # bun
