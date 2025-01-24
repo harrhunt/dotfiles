@@ -29,7 +29,7 @@ return {
                 "lua_ls",
                 "rust_analyzer",
                 "jinja_lsp",
-                "ruff_lsp",
+                "ruff",
                 "pylsp",
                 "taplo",
             },
