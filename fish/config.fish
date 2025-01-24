@@ -35,7 +35,7 @@ if type -q curl
 end
 
 if type -q nvm
-    nvm use latest
+    nvm use stable
 end
 
 # bun
