@@ -35,7 +35,7 @@ if type -q curl
 end
 
 if type -q nvm
-    nvm use stable
+    nvm use --silent stable
 end
 
 # bun
