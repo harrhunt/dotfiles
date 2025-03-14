@@ -17,6 +17,16 @@ return {
                     },
                     console = "integratedTerminal",
                 },
+                {
+                    type = "debugpy",
+                    request = "launch",
+                    name = "FastAPI",
+                    module = "fastapi",
+                    args = {
+                        "run",
+                    },
+                    console = "integratedTerminal",
+                },
             }
 
             dap.adapters.lldb = {
