@@ -4,16 +4,23 @@ return {
         dependencies = {
             "williamboman/mason.nvim",
             "williamboman/mason-lspconfig.nvim",
+            "nvimtools/none-ls.nvim",
+            "nvimtools/none-ls-extras.nvim",
+            "williamboman/mason-null-ls.nvim",
             "hrsh7th/cmp-nvim-lsp",
             "hrsh7th/cmp-buffer",
             "hrsh7th/cmp-path",
             "hrsh7th/cmp-cmdline",
             "hrsh7th/nvim-cmp",
             "L3MON4D3/LuaSnip",
+            "onsails/lspkind.nvim",
+            "nvimdev/lspsaga.nvim",
             "saadparwaiz1/cmp_luasnip",
             "j-hui/fidget.nvim",
         },
         config = function()
+            local lspkind = require("lspkind")
+            local null_ls = require("null-ls")
             local cmp = require("cmp")
 
             local cmp_lsp = require("cmp_nvim_lsp")
@@ -28,17 +35,45 @@ return {
             require("mason-lspconfig").setup({
                 ensure_installed = {
                     "lua_ls",
-                    "rust_analyzer",
                     "jinja_lsp",
                     "ruff",
                     "pylsp",
                     "taplo",
+                    "biome",
+                    "ts_ls",
                 },
                 handlers = {
                     function(server_name) -- default handler (optional)
                         require("lspconfig")[server_name].setup {
                             capabilities = capabilities
 
+                        }
+                    end,
+
+                    biome = function()
+                        local lspconfig = require("lspconfig")
+                        lspconfig.biome.setup {
+                            capabilities = capabilities,
+                            single_file_support = true,
+                        }
+                    end,
+
+                    ["ts_ls"] = function()
+                        local lspconfig = require("lspconfig")
+                        lspconfig.ts_ls.setup {
+                            capabilities = capabilities,
+                            settings = {
+                                javascript = {
+                                    format = {
+                                        enable = false,
+                                    },
+                                },
+                                typescript = {
+                                    format = {
+                                        enable = false,
+                                    },
+                                },
+                            },
                         }
                     end,
 
@@ -88,7 +123,7 @@ return {
                                             enabled = true,
                                             overrides = mypy_venv(),
                                             report_progress = true,
-                                            live_mode = true,
+                                            live_mode = false,
                                         },
                                         -- auto-completion options
 
@@ -107,6 +142,21 @@ return {
                     end
                 }
             })
+            require("mason-null-ls").setup({
+                ensure_installed = {
+                    -- "eslint_d",
+                    "jq",
+                },
+                automatic_installation = false,
+                handlers = { function() end },
+            })
+            null_ls.setup({
+                sources = {
+                    require("none-ls.formatting.jq"),
+                    -- require("none-ls.diagnostics.eslint_d"),
+                    null_ls.builtins.completion.spell,
+                }
+            })
 
             local lspconfig = require("lspconfig")
             lspconfig.zls.setup({
@@ -123,6 +173,21 @@ return {
             local cmp_select = { behavior = cmp.SelectBehavior.Select }
 
             cmp.setup({
+                formatting = {
+                    format = lspkind.cmp_format({
+                        mode = 'symbol',
+                        maxwidth = {
+                            menu = 50,
+                            abbr = 50,
+                        },
+                        ellipsis_char = '...',
+                        show_labelDetails = true,
+
+                        before = function(entry, vim_item)
+                            return vim_item
+                        end
+                    })
+                },
                 snippet = {
                     expand = function(args)
                         require("luasnip").lsp_expand(args.body) -- For `luasnip` users.
@@ -144,8 +209,14 @@ return {
                 })
             })
 
+            require("lspsaga").setup({
+                lightbulb = {
+                    enable = false,
+                },
+            })
 
             vim.diagnostic.config({
+                signs = false,
                 -- update_in_insert = true,
                 float = {
                     focusable = false,
