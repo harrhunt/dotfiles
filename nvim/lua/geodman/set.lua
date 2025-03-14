@@ -28,6 +28,5 @@ vim.opt.updatetime = 50
 
 vim.opt.colorcolumn = "80"
 
-vim.opt.signcolumn = "yes:4"
 vim.opt.splitright = true
 vim.opt.splitbelow = true
