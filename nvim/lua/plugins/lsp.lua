@@ -35,7 +35,6 @@ return {
             require("mason-lspconfig").setup({
                 ensure_installed = {
                     "lua_ls",
-                    "jinja_lsp",
                     "ruff",
                     "pylsp",
                     "taplo",
@@ -144,17 +143,15 @@ return {
             })
             require("mason-null-ls").setup({
                 ensure_installed = {
-                    -- "eslint_d",
                     "jq",
+                    "djlint",
                 },
                 automatic_installation = false,
-                handlers = { function() end },
+                handlers = {},
             })
             null_ls.setup({
                 sources = {
                     require("none-ls.formatting.jq"),
-                    -- require("none-ls.diagnostics.eslint_d"),
-                    null_ls.builtins.completion.spell,
                 }
             })
 
