@@ -40,6 +40,7 @@ return {
                     "taplo",
                     "biome",
                     "ts_ls",
+                    "zls",
                 },
                 handlers = {
                     function(server_name) -- default handler (optional)
