@@ -34,6 +34,10 @@ if type -q curl
     alias dl="curl -OJ"
 end
 
+if type -q bat
+    alias cat="bat"
+end
+
 if type -q nvm
     nvm use --silent lts
 end
@@ -45,3 +49,8 @@ end
 # bun
 set --export BUN_INSTALL "$HOME/.bun"
 set --export PATH $BUN_INSTALL/bin $PATH
+
+# ZVM
+set -gx ZVM_INSTALL "$HOME/.zvm/self"
+set -gx PATH $PATH "$HOME/.zvm/bin"
+set -gx PATH $PATH "$ZVM_INSTALL/"
