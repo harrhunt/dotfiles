@@ -1,0 +1,20 @@
+layout {
+    pane split_direction="vertical" {
+        pane size="70%" command="nvim" {
+            args "."
+        }
+        pane split_direction="horizontal"{
+            zig { args "build"; }
+            zig { args "build" "run"; }
+            zig { args "build" "test"; }
+            zig { args "build" "test" "--fuzz"; }
+        }
+    }
+    pane_template name="zig" {
+        command "zig"
+        start_suspended true
+    }
+    pane size=1 borderless=true {
+        plugin location="zellij:status-bar"
+    }
+}
