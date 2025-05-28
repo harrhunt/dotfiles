@@ -38,6 +38,12 @@ if type -q bat
     alias cat="bat"
 end
 
+if type -q zellij
+    alias z="zellij"
+    alias za="zellij attach"
+    alias zzig="zellij --layout zig-layout"
+end
+
 if type -q nvm
     nvm use --silent lts
 end
