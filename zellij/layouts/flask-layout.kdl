@@ -1,0 +1,23 @@
+layout {
+    pane split_direction="vertical" {
+        pane size="70%" command="nvim" {
+            args "."
+        }
+        pane split_direction="horizontal"{
+            flask name="flask run" { args "run" "--debug" "--host" "0.0.0.0"; }
+            flask name="flask shell" { args "shell"; }
+            pane name="sass watcher" { 
+                command "sass"
+                args "--watch" "--style=compressed" "app/static/styles/sass/:app/static/styles/css/"
+                start_suspended true
+            }
+        }
+    }
+    pane_template name="flask" {
+        command "flask"
+        start_suspended true
+    }
+    pane size=1 borderless=true {
+        plugin location="zellij:status-bar"
+    }
+}

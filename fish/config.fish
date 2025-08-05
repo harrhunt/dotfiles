@@ -42,6 +42,7 @@ if type -q zellij
     alias z="zellij"
     alias za="zellij attach"
     alias zzig="zellij --layout zig-layout"
+    alias zflask="zellij --layout flask-layout"
 end
 
 if type -q nvm
