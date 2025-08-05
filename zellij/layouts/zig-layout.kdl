@@ -1,7 +1,10 @@
 layout {
     pane split_direction="vertical" {
-        pane size="70%" command="nvim" {
-            args "."
+        pane size="70%" split_direction="horizontal"{
+            pane size="70%" command="nvim" {
+                args "."
+            }
+            pane
         }
         pane split_direction="horizontal"{
             zig { args "build"; }
