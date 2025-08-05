@@ -42,105 +42,6 @@ return {
                     "ts_ls",
                     "zls",
                 },
-                handlers = {
-                    function(server_name) -- default handler (optional)
-                        require("lspconfig")[server_name].setup {
-                            capabilities = capabilities
-
-                        }
-                    end,
-
-                    biome = function()
-                        local lspconfig = require("lspconfig")
-                        lspconfig.biome.setup {
-                            capabilities = capabilities,
-                            single_file_support = true,
-                        }
-                    end,
-
-                    ["ts_ls"] = function()
-                        local lspconfig = require("lspconfig")
-                        lspconfig.ts_ls.setup {
-                            capabilities = capabilities,
-                            settings = {
-                                javascript = {
-                                    format = {
-                                        enable = false,
-                                    },
-                                },
-                                typescript = {
-                                    format = {
-                                        enable = false,
-                                    },
-                                },
-                            },
-                        }
-                    end,
-
-                    ["lua_ls"] = function()
-                        local lspconfig = require("lspconfig")
-                        lspconfig.lua_ls.setup {
-                            capabilities = capabilities,
-                            settings = {
-                                Lua = {
-                                    runtime = { version = "Lua 5.1" },
-                                    diagnostics = {
-
-                                        globals = { "bit", "vim", "it", "describe", "before_each", "after_each" },
-                                    },
-                                    workspace = {
-                                        library = {
-                                            vim.env.VIMRUNTIME,
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    end,
-                    pylsp = function()
-                        local lspconfig = require("lspconfig")
-                        local function mypy_venv()
-                            local virtual = os.getenv("VIRTUAL_ENV") or "/usr"
-                            return { "--python-executable", virtual .. "/bin/python", true }
-                        end
-                        lspconfig.pylsp.setup {
-                            settings = {
-                                pylsp = {
-                                    plugins = {
-                                        -- formatter options
-                                        black = { enabled = false },
-                                        autopep8 = { enabled = false },
-                                        yapf = { enabled = false },
-                                        -- linter options
-                                        pylint = { enabled = false, executable = "pylint" },
-
-                                        ruff = { enabled = false },
-                                        pyflakes = { enabled = false },
-
-                                        pycodestyle = { enabled = false },
-                                        -- type checker
-                                        pylsp_mypy = {
-                                            enabled = true,
-                                            overrides = mypy_venv(),
-                                            report_progress = true,
-                                            live_mode = false,
-                                        },
-                                        -- auto-completion options
-
-                                        jedi_completion = { fuzzy = true },
-                                        -- import sorting
-                                        isort = { enabled = true },
-                                    },
-                                },
-                            },
-                            flags = {
-
-                                debounce_text_changes = 200,
-                            },
-                            capabilities = capabilities,
-                        }
-                    end
-                }
             })
             require("mason-null-ls").setup({
                 ensure_installed = {
@@ -156,18 +57,6 @@ return {
                 }
             })
 
-            local lspconfig = require("lspconfig")
-            lspconfig.zls.setup({
-                capabilities = capabilities,
-                root_dir = lspconfig.util.root_pattern(".git", "build.zig", "zls.json"),
-                settings = {
-                    zls = {
-                        enable_inlay_hints = true,
-                        enable_snippets = true,
-                        warn_style = true,
-                    },
-                },
-            })
             local cmp_select = { behavior = cmp.SelectBehavior.Select }
 
             cmp.setup({

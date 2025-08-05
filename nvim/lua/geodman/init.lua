@@ -23,3 +23,13 @@ autocmd('LspAttach', {
         vim.keymap.set("n", "<leader>vd", vim.diagnostic.open_float, opts)
     end,
 })
+
+vim.lsp.enable({
+    "biome",
+    "lua_ls",
+    "ruff",
+    "pylsp",
+    "taplo",
+    "ts_ls",
+    "zls",
+})
