@@ -41,6 +41,7 @@ return {
                     "biome",
                     "ts_ls",
                     "zls",
+                    "tinymist",
                 },
             })
             require("mason-null-ls").setup({

@@ -32,4 +32,5 @@ vim.lsp.enable({
     "taplo",
     "ts_ls",
     "zls",
+    "tinymist",
 })
