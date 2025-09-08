@@ -26,11 +26,27 @@ return {
     },
     workspace_required = true,
     root_dir = function(bufnr, on_dir)
-        local fname = vim.api.nvim_buf_get_name(bufnr)
-        local root_files = { 'biome.json', 'biome.jsonc' }
-        root_files = util.insert_package_json(root_files, 'biome', fname)
-        local root_dir = vim.fs.dirname(vim.fs.find(root_files, { path = fname, upward = true })[1])
-        on_dir(root_dir)
+        local project_root_markers = { 'package-lock.json', 'yarn.lock', 'pnpm-lock.yaml', 'bun.lockb', 'bun.lock' }
+        local project_root = vim.fs.root(bufnr, project_root_markers)
+        if not project_root then
+            return nil
+        end
+
+        local filename = vim.api.nvim_buf_get_name(bufnr)
+        local biome_config_files = { 'biome.json', 'biome.jsonc' }
+        biome_config_files = util.insert_package_json(biome_config_files, 'biome', filename)
+        local is_buffer_using_biome = vim.fs.find(biome_config_files, {
+            path = filename,
+            type = 'file',
+            limit = 1,
+            upward = true,
+            stop = vim.fs.dirname(project_root),
+        })[1]
+        if not is_buffer_using_biome then
+            return nil
+        end
+
+        on_dir(project_root)
     end,
     single_file_support = true,
 }
