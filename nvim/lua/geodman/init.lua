@@ -30,7 +30,6 @@ vim.lsp.enable({
     "ruff",
     "pylsp",
     "taplo",
-    "ts_ls",
     "zls",
     "tinymist",
     "cssls",

@@ -39,7 +39,6 @@ return {
                     "pylsp",
                     "taplo",
                     "biome",
-                    "ts_ls",
                     "zls",
                     "tinymist",
                     "cssls",
