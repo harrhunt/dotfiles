@@ -40,4 +40,6 @@ vim.lsp.enable({
     "tinymist",
     "cssls",
     "svelte",
+    "yamlls",
+    "docker_compose_language_service",
 })
