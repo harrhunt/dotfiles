@@ -42,6 +42,7 @@ return {
                     "zls",
                     "tinymist",
                     "cssls",
+                    "svelte",
                 },
             })
             require("mason-null-ls").setup({
