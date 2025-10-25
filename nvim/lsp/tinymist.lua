@@ -45,7 +45,7 @@ local function create_tinymist_command(command_name, client, bufnr)
     end
     -- Construct a readable command name/desc
     local cmd_name = export_type and ('LspTinymistExport' .. cmd_display) or
-    ('LspTinymist' .. cmd_display) ---@type string
+        ('LspTinymist' .. cmd_display) ---@type string
     local cmd_desc = export_type and ('Export to ' .. cmd_display) or ('Get ' .. cmd_display) ---@type string
     return run_tinymist_command, cmd_name, cmd_desc
 end
@@ -53,7 +53,7 @@ end
 return {
     cmd = { 'tinymist' },
     filetypes = { 'typst' },
-    root_markers = { '.git' },
+    root_markers = { '.git', vim.uv.cwd() },
     on_attach = function(client, bufnr)
         for _, command in ipairs {
             'tinymist.exportSvg',
@@ -73,4 +73,8 @@ return {
             vim.api.nvim_buf_create_user_command(bufnr, cmd_name, cmd_func, { nargs = 0, desc = cmd_desc })
         end
     end,
+    settings = {
+        formatterMode = "typstyle",
+        exportPdf = "onType",
+    },
 }
