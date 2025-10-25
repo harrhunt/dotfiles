@@ -23,6 +23,7 @@ return {
                         config = {
                             workspaces = {
                                 notes = "~/notes",
+                                dnd = "~/dnd",
                             },
                             default_workspace = "notes",
                         },
