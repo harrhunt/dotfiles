@@ -34,10 +34,10 @@ vim.lsp.enable({
     "biome",
     "lua_ls",
     "ruff",
-    "svelte",
     "pylsp",
     "taplo",
     "zls",
     "tinymist",
     "cssls",
+    "svelte",
 })
