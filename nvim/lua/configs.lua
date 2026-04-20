@@ -42,3 +42,9 @@ opt.spell = true
 opt.updatetime = 50
 
 vim.cmd.filetype("plugin indent on") -- Enable filetype detection, plugins, and indentation
+
+if vim.g.neovide then
+    vim.g.neovide_cursor_vfx_mode = "wireframe"
+    vim.g.neovide_cursor_vfx_particle_density = 0.7
+    vim.o.guifont = "FiraCode Nerd Font"
+end
