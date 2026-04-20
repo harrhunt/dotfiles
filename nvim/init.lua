@@ -1,2 +1,4 @@
-require("geodman")
-require("config.lazy")
+require("lsp")
+require("configs")
+require("keymaps")
+require("autocmds")
