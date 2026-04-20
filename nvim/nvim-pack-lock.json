@@ -13,6 +13,10 @@
       "rev": "8d82c240f190fc33723d48c308ccc1ed8baad69d",
       "src": "https://github.com/lewis6991/gitsigns.nvim"
     },
+    "kanagawa.nvim": {
+      "rev": "8ad3b4cdcc804b332c32db8f9743667e1bb82b99",
+      "src": "https://github.com/rebelot/kanagawa.nvim"
+    },
     "lualine.nvim": {
       "rev": "a905eeebc4e63fdc48b5135d3bf8aea5618fb21c",
       "src": "https://github.com/nvim-lualine/lualine.nvim"
@@ -20,6 +24,10 @@
     "mason.nvim": {
       "rev": "b03fb0f20bc1d43daf558cda981a2be22e73ac42",
       "src": "https://github.com/mason-org/mason.nvim"
+    },
+    "mini.nvim": {
+      "rev": "d76247d6e3ffa222784be5b156770e37c665f67e",
+      "src": "https://github.com/nvim-mini/mini.nvim"
     },
     "neovim": {
       "rev": "9504524e5ed0e326534698f637f9d038ba4cd0ee",
@@ -32,6 +40,14 @@
     "oklch-color-picker.nvim": {
       "rev": "3f343962643f63d75ae3bcf65669df2930e94411",
       "src": "https://github.com/eero-lehtinen/oklch-color-picker.nvim"
+    },
+    "undotree": {
+      "rev": "6fa6b57cda8459e1e4b2ca34df702f55242f4e4d",
+      "src": "https://github.com/mbbill/undotree"
+    },
+    "vague.nvim": {
+      "rev": "8751181a1aa431b4e8983b0a183afef5cbc08381",
+      "src": "https://github.com/vague-theme/vague.nvim"
     },
     "vim-one": {
       "rev": "187f5c85b682c1933f8780d4d419c55d26a82e24",

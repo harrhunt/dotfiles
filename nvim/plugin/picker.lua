@@ -19,7 +19,7 @@ require("artio").setup({
         pointer = "", -- pointer for the selected match
         marker = "│", -- prefix for marked items
         infolist = { "list" }, -- index: [1] list: (4/5)
-        use_icons = false, -- requires mini.icons
+        use_icons = true, -- requires mini.icons
     },
     win = {
         height = 12,
