@@ -32,4 +32,5 @@ vim.lsp.enable({
     "lua_ls",
     "tinymist",
     "bashls",
+    "clangd",
 })

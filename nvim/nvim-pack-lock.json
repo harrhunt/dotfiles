@@ -13,6 +13,10 @@
       "rev": "8d82c240f190fc33723d48c308ccc1ed8baad69d",
       "src": "https://github.com/lewis6991/gitsigns.nvim"
     },
+    "hex.nvim": {
+      "rev": "b46e63356a69e8d6f046c38a9708d55d17f15038",
+      "src": "https://github.com/RaafatTurki/hex.nvim"
+    },
     "kanagawa.nvim": {
       "rev": "8ad3b4cdcc804b332c32db8f9743667e1bb82b99",
       "src": "https://github.com/rebelot/kanagawa.nvim"
@@ -28,6 +32,10 @@
     "mini.nvim": {
       "rev": "d76247d6e3ffa222784be5b156770e37c665f67e",
       "src": "https://github.com/nvim-mini/mini.nvim"
+    },
+    "monokai-pro.nvim": {
+      "rev": "d8884d4473667c48bd17a68d08383d38839136a3",
+      "src": "https://github.com/loctvl842/monokai-pro.nvim"
     },
     "neovim": {
       "rev": "9504524e5ed0e326534698f637f9d038ba4cd0ee",
@@ -48,6 +56,10 @@
     "oklch-color-picker.nvim": {
       "rev": "3f343962643f63d75ae3bcf65669df2930e94411",
       "src": "https://github.com/eero-lehtinen/oklch-color-picker.nvim"
+    },
+    "srcery-vim": {
+      "rev": "ca521d76f968713dabfe29b7f13d57fc257da43e",
+      "src": "https://github.com/srcery-colors/srcery-vim"
     },
     "undotree": {
       "rev": "6fa6b57cda8459e1e4b2ca34df702f55242f4e4d",
