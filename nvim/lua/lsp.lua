@@ -33,4 +33,5 @@ vim.lsp.enable({
     "tinymist",
     "bashls",
     "clangd",
+    "zls",
 })
