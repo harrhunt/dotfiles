@@ -34,4 +34,6 @@ vim.lsp.enable({
     "bashls",
     "clangd",
     "zls",
+    "ruff",
+    "ty",
 })
