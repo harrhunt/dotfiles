@@ -36,4 +36,5 @@ vim.lsp.enable({
     "zls",
     "ruff",
     "ty",
+    "svelte",
 })
