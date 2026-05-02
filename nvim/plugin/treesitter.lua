@@ -25,7 +25,7 @@ vim.api.nvim_create_autocmd("FileType", {
 vim.pack.add({ 'https://github.com/nvim-treesitter/nvim-treesitter' })
 vim.pack.add({ 'https://github.com/nvim-treesitter/nvim-treesitter-textobjects' })
 
-require('nvim-treesitter').install({ 'python', 'javascript', 'go', 'zig', 'typst', 'lua' })
+require('nvim-treesitter').install({ 'python', 'javascript', 'go', 'zig', 'typst', 'lua', 'svelte', 'typescript', 'scss' })
 require('nvim-treesitter').setup()
 require("nvim-treesitter-textobjects").setup({
     select = {
