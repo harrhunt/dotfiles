@@ -37,4 +37,5 @@ vim.lsp.enable({
     "ruff",
     "ty",
     "svelte",
+    "gopls",
 })
