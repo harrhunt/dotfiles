@@ -27,8 +27,8 @@ require("artio").setup({
     },
     -- NOTE: if you override the mappings, make sure to provide keys for all actions
     mappings = {
-        ["<down>"] = "down",
-        ["<up>"] = "up",
+        ["<c-n>"] = "down",
+        ["<c-p>"] = "up",
         ["<cr>"] = "accept",
         ["<esc>"] = "cancel",
         ["<tab>"] = "mark",
