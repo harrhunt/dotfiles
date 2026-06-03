@@ -41,6 +41,8 @@ opt.spell = true
 
 opt.updatetime = 50
 
+opt.foldlevel = 99
+
 vim.cmd.filetype("plugin indent on") -- Enable filetype detection, plugins, and indentation
 
 if vim.g.neovide then
