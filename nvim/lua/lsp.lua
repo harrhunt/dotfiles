@@ -38,4 +38,5 @@ vim.lsp.enable({
     "ty",
     "svelte",
     "gopls",
+    "nginx_language_server",
 })
