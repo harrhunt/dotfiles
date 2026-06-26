@@ -39,4 +39,5 @@ vim.lsp.enable({
     "svelte",
     "gopls",
     "nginx_language_server",
+    "biome",
 })
