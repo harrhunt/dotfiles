@@ -40,4 +40,12 @@ vim.lsp.enable({
     "gopls",
     "nginx_language_server",
     "biome",
+    "docker_compose_language_service",
+})
+
+vim.filetype.add({
+    filename = {
+        ["docker-compose.yml"] = "yaml.docker-compose",
+        ["docker-compose.yaml"] = "yaml.docker-compose",
+    },
 })
