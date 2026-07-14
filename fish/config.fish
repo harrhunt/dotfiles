@@ -13,9 +13,13 @@ end
 
 if type -q nvim
     alias vim="nvim"
-end
-if type -q vim
+    alias v="nvim ."
+    alias sv="sudo -E -s nvim ."
+    alias svim="sudo -E -s nvim"
+else if type -q vim
     alias v="vim ."
+    alias sv="sudo -E -s vim ."
+    alias svim="sudo -E -s vim"
 end
 
 
