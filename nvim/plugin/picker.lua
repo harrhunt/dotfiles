@@ -1,55 +1,50 @@
 vim.pack.add({
-    "https://codeberg.org/comfysage/artio.nvim",
+    'https://github.com/nvim-tree/nvim-web-devicons',
+    'https://github.com/ibhagwan/fzf-lua',
 })
 
-require("vim._core.ui2").enable({
-    enable = true,
-    msg = {
-        target = "msg",
-    }
+require("fzf-lua").setup({
+    ui_select = {},
+    -- -- MISC GLOBAL SETUP OPTIONS, SEE BELOW
+    -- -- each of these options can also be passed as function that return options table
+    -- -- e.g. winopts = function() return { ... } end
+    -- winopts = { ... },   -- UI Options
+    -- keymap = { ... },    -- Neovim keymaps / fzf binds
+    -- actions = { ... },   -- Fzf "accept" binds
+    -- fzf_opts = { ... },  -- Fzf CLI flags
+    -- fzf_colors = { ... }, -- Fzf `--color` specification
+    -- hls = { ... },       -- Highlights
+    -- previewers = { ... }, -- Previewers options
+    -- -- SPECIFIC COMMAND/PICKER OPTIONS, SEE BELOW
+    -- -- files = { ... },
 })
 
-require("artio").setup({
-    opts = {
-        preselect = true, -- whether to preselect the first match
-        bottom = true, -- whether to draw the prompt at the bottom
-        shrink = true, -- whether the window should shrink to fit the matches
-        promptprefix = "", -- prefix for the prompt
-        prompt_title = true, -- whether to draw the prompt title
-        pointer = "", -- pointer for the selected match
-        marker = "│", -- prefix for marked items
-        infolist = { "list" }, -- index: [1] list: (4/5)
-        use_icons = true, -- requires mini.icons
-    },
-    win = {
-        height = 12,
-        hidestatusline = false, -- works best with laststatus=3
-    },
-    -- NOTE: if you override the mappings, make sure to provide keys for all actions
-    mappings = {
-        ["<c-n>"] = "down",
-        ["<c-p>"] = "up",
-        ["<cr>"] = "accept",
-        ["<esc>"] = "cancel",
-        ["<tab>"] = "mark",
-        ["<c-g>"] = "togglelive",
-        ["<c-l>"] = "togglepreview",
-        ["<c-q>"] = "setqflist",
-        ["<m-q>"] = "setqflistmark",
-    },
-})
-
--- override built-in ui select with artio
-vim.ui.select = require("artio").select
-
-vim.keymap.set("n", "<leader><leader>", "<Plug>(artio-files)")
-vim.keymap.set("n", "<leader>fg", "<Plug>(artio-grep)")
-
--- smart file picker
-vim.keymap.set("n", "<leader>ff", "<Plug>(artio-smart)")
-
--- general built-in pickers
-vim.keymap.set("n", "<leader>fh", "<Plug>(artio-helptags)")
-vim.keymap.set("n", "<leader>fb", "<Plug>(artio-buffers)")
-vim.keymap.set("n", "<leader>f/", "<Plug>(artio-buffergrep)")
-vim.keymap.set("n", "<leader>fo", "<Plug>(artio-oldfiles)")
+vim.keymap.set("n", "<leader>fb", function()
+    require("fzf-lua").buffers()
+end)
+vim.keymap.set("n", "<leader>ff", function()
+    require("fzf-lua").files()
+end)
+vim.keymap.set("n", "<leader><leader>", function()
+    require("fzf-lua").vcs_files()
+end)
+vim.keymap.set("n", "<leader>fg", function()
+    require("fzf-lua").grep()
+end)
+vim.keymap.set("n", "<leader>fl", function()
+    require("fzf-lua").live_grep()
+end)
+vim.keymap.set("n", "<leader>fr", function()
+    require("fzf-lua").git_files({
+        cmd = "git ls-files --modified --others"
+    })
+end)
+vim.keymap.set("n", "<leader>fs", function()
+    require("fzf-lua").git_status()
+end)
+vim.keymap.set("n", "<leader>fdd", function()
+    require("fzf-lua").diagnostics_document()
+end)
+vim.keymap.set("n", "<leader>fdw", function()
+    require("fzf-lua").diagnostics_workspace()
+end)
