@@ -41,6 +41,7 @@ vim.lsp.enable({
     "nginx_language_server",
     "biome",
     "docker_compose_language_service",
+    "html",
 })
 
 vim.filetype.add({
