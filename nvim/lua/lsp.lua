@@ -42,6 +42,7 @@ vim.lsp.enable({
     "biome",
     "docker_compose_language_service",
     "html",
+    "emmet_language_server",
 })
 
 vim.filetype.add({
