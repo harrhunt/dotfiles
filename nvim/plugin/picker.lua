@@ -19,32 +19,77 @@ require("fzf-lua").setup({
     -- -- files = { ... },
 })
 
-vim.keymap.set("n", "<leader>fb", function()
-    require("fzf-lua").buffers()
-end)
-vim.keymap.set("n", "<leader>ff", function()
-    require("fzf-lua").files()
-end)
-vim.keymap.set("n", "<leader><leader>", function()
-    require("fzf-lua").vcs_files()
-end)
-vim.keymap.set("n", "<leader>fg", function()
-    require("fzf-lua").grep()
-end)
-vim.keymap.set("n", "<leader>fl", function()
-    require("fzf-lua").live_grep()
-end)
-vim.keymap.set("n", "<leader>fr", function()
-    require("fzf-lua").git_files({
-        cmd = "git ls-files --modified --others"
-    })
-end)
-vim.keymap.set("n", "<leader>fs", function()
-    require("fzf-lua").git_status()
-end)
-vim.keymap.set("n", "<leader>fdd", function()
-    require("fzf-lua").diagnostics_document()
-end)
-vim.keymap.set("n", "<leader>fdw", function()
-    require("fzf-lua").diagnostics_workspace()
-end)
+vim.keymap.set(
+    "n",
+    "<leader>fb",
+    function()
+        require("fzf-lua").buffers()
+    end,
+    { desc = "fzf buffers" }
+)
+vim.keymap.set(
+    "n",
+    "<leader>ff",
+    function()
+        require("fzf-lua").files()
+    end,
+    { desc = "fzf files" }
+)
+vim.keymap.set(
+    "n",
+    "<leader><leader>",
+    function()
+        require("fzf-lua").vcs_files()
+    end,
+    { desc = "fzf version control files" }
+)
+vim.keymap.set(
+    "n",
+    "<leader>fg",
+    function()
+        require("fzf-lua").grep()
+    end,
+    { desc = "fzf grep" }
+)
+vim.keymap.set(
+    "n",
+    "<leader>fl",
+    function()
+        require("fzf-lua").live_grep()
+    end,
+    { desc = "fzf live grep" }
+)
+vim.keymap.set(
+    "n",
+    "<leader>fr",
+    function()
+        require("fzf-lua").git_files({
+            cmd = "git ls-files --modified --others"
+        })
+    end,
+    { desc = "fzf git files (include untracked)" }
+)
+vim.keymap.set(
+    "n",
+    "<leader>fs",
+    function()
+        require("fzf-lua").git_status()
+    end,
+    { desc = "fzf git status" }
+)
+vim.keymap.set(
+    "n",
+    "<leader>fdd",
+    function()
+        require("fzf-lua").diagnostics_document()
+    end,
+    { desc = "fzf diagnostics document" }
+)
+vim.keymap.set(
+    "n",
+    "<leader>fdw",
+    function()
+        require("fzf-lua").diagnostics_workspace()
+    end,
+    { desc = "fzf diagnostics workspace" }
+)
