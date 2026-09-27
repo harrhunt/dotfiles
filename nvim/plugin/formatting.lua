@@ -5,6 +5,11 @@ require("conform").setup({
         json = { "jq" },
         nginx = { "nginxfmt" },
     },
+    formatters = {
+        jq = {
+            args = { "--sort-keys", "--indent", "4", "." }
+        }
+    }
 })
 
 vim.api.nvim_create_autocmd('FileType', {
