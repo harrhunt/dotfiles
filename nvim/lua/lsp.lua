@@ -43,6 +43,7 @@ vim.lsp.enable({
     "docker_compose_language_service",
     "html",
     "emmet_language_server",
+    "jsonls",
 })
 
 vim.filetype.add({
