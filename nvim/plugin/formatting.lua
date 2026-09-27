@@ -11,7 +11,7 @@ vim.api.nvim_create_autocmd('FileType', {
     pattern = { "json", "nginx" },
     callback = function(args)
         local bufnr = args.buf
-        vim.keymap.set("n", "<leader>vfc",
+        vim.keymap.set("n", "<leader>vt",
             function()
                 require("conform").format({ bufnr = bufnr, async = true, lsp_format = "fallback" })
             end,
