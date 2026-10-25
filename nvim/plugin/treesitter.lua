@@ -56,10 +56,14 @@ vim.api.nvim_create_autocmd("FileType", {
 })
 
 vim.pack.add({ 'https://github.com/nvim-treesitter/nvim-treesitter' })
+vim.pack.add({ 'https://github.com/nvim-treesitter/nvim-treesitter-context' })
 vim.pack.add({ 'https://github.com/nvim-treesitter/nvim-treesitter-textobjects' })
 
 require('nvim-treesitter').install(langs)
 require('nvim-treesitter').setup()
+require('treesitter-context').setup({
+
+})
 require("nvim-treesitter-textobjects").setup({
     select = {
         lookahead = true,
