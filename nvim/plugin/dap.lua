@@ -2,6 +2,7 @@ vim.pack.add({ 'https://codeberg.org/mfussenegger/nvim-dap.git' })
 vim.pack.add({ 'https://github.com/nvim-neotest/nvim-nio' })
 vim.pack.add({ 'https://github.com/rcarriga/nvim-dap-ui' })
 vim.pack.add({ 'https://github.com/leoluz/nvim-dap-go' })
+vim.pack.add({ 'https://codeberg.org/mfussenegger/nvim-dap-python.git' })
 
 local dap, dapui = require("dap"), require("dapui")
 dapui.setup({})
@@ -16,6 +17,34 @@ require('dap-go').setup({
         },
     },
 })
+require('dap-python').setup("uv")
+table.insert(require('dap').configurations.python,
+    {
+        type = "debugpy",
+        request = "launch",
+        name = "Flask",
+        module = "flask",
+        args = {
+            "run",
+            "--debug",
+            "--host",
+            "0.0.0.0",
+        },
+        console = "integratedTerminal",
+    }
+)
+table.insert(require('dap').configurations.python,
+    {
+        type = "debugpy",
+        request = "launch",
+        name = "FastAPI",
+        module = "fastapi",
+        args = {
+            "run",
+        },
+        console = "integratedTerminal",
+    }
+)
 
 vim.keymap.set('n', '<F5>', function() require('dap').continue() end, { desc = "DAP Continue" })
 vim.keymap.set('n', '<F10>', function() require('dap').step_over() end, { desc = "DAP Step Over" })
@@ -44,7 +73,7 @@ vim.keymap.set('n', '<Leader>ds', function()
 end, { desc = "DAP Show Scopes" })
 vim.keymap.set('n', '<Leader>du', function()
     require('dapui').toggle()
-end, { desc = "DAP Hover" })
+end, { desc = "Toggle DAP UI" })
 
 dap.listeners.before.attach.dapui_config = function()
     dapui.open()
