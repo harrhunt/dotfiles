@@ -58,6 +58,10 @@ if type -q pyenv
     pyenv init - fish | source
 end
 
+if type -q ghostty
+    alias ssh="ghostty +ssh"
+end
+
 # bun
 set --export BUN_INSTALL "$HOME/.bun"
 set --export PATH $BUN_INSTALL/bin $PATH
