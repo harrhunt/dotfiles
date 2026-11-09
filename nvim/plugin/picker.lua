@@ -5,6 +5,12 @@ vim.pack.add({
 
 require("fzf-lua").setup({
     ui_select = {},
+    actions = {
+        files = {
+            true, -- inherit other default actions
+            ["ctrl-q"] = { fn = require("fzf-lua").actions.file_sel_to_qf, prefix = "select-all" },
+        },
+    },
     -- -- MISC GLOBAL SETUP OPTIONS, SEE BELOW
     -- -- each of these options can also be passed as function that return options table
     -- -- e.g. winopts = function() return { ... } end
