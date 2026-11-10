@@ -81,6 +81,10 @@
       "rev": "eaa0fc5afaeb01b3294606d5accc84f3b49367a9",
       "src": "https://github.com/srcery-colors/srcery-vim"
     },
+    "triforce.nvim": {
+      "rev": "4e1e1307dbcc284a63f175e0272f218277288a60",
+      "src": "https://github.com/DrKJeff16/triforce.nvim"
+    },
     "undotree": {
       "rev": "6fa6b57cda8459e1e4b2ca34df702f55242f4e4d",
       "src": "https://github.com/mbbill/undotree"
@@ -92,6 +96,10 @@
     "vim-wakatime": {
       "rev": "98cb7a8a09f8a0cb225b5955bf491ffb9860569f",
       "src": "https://github.com/wakatime/vim-wakatime"
+    },
+    "volt": {
+      "rev": "4351c5cd790a0d39491c4d5c75dd62d7db3d3414",
+      "src": "https://github.com/nvzone/volt"
     },
     "which-key.nvim": {
       "rev": "3aab2147e74890957785941f0c1ad87d0a44c15a",
