@@ -44,6 +44,7 @@ vim.lsp.enable({
     "html",
     "emmet_language_server",
     "jsonls",
+    "kdl_lsp",
 })
 
 vim.filetype.add({
