@@ -82,8 +82,8 @@
       "src": "https://github.com/srcery-colors/srcery-vim"
     },
     "triforce.nvim": {
-      "rev": "4e1e1307dbcc284a63f175e0272f218277288a60",
-      "src": "https://github.com/DrKJeff16/triforce.nvim"
+      "rev": "d06d585277c714c2d1fb6778af242cc89ee5d933",
+      "src": "https://github.com/gisketch/triforce.nvim"
     },
     "undotree": {
       "rev": "6fa6b57cda8459e1e4b2ca34df702f55242f4e4d",
