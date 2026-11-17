@@ -1,0 +1,16 @@
+fish
+neovim
+starship
+tree-sitter-cli
+bat
+lsd
+fd
+ripgrep
+git
+clang
+base-devel
+fzf
+pacman-contrib
+rustup
+ttf-firacode-nerd
+

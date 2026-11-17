@@ -1,0 +1,6 @@
+ghostty
+f3d
+nsxiv
+wl-clipboard
+mpv
+
