@@ -13,4 +13,5 @@ fzf
 pacman-contrib
 rustup
 ttf-firacode-nerd
-
+man-db
+man-pages
