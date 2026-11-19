@@ -27,3 +27,6 @@ wallpaper_scheme = "m3-rainbow"
 
 [wallpaper]
 directory = "/home/geodman/.local/share/wallpapers"
+
+[weather]
+unit = "imperial"
