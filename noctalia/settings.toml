@@ -1,0 +1,29 @@
+config_version = 20
+
+[bar.default]
+background_opacity = 0.8
+compositor_blur = false
+end = [ "tray", "network", "bluetooth", "volume", "brightness", "battery", "control-center", "session" ]
+icon_color = "primary"
+radius = 48
+start = [ "launcher", "wallpaper", "workspaces", "clipboard", "notifications", "media" ]
+widget_spacing = 10
+
+    [bar.default.dead_zone.actions]
+    middle = "bar-reserve-toggle"
+    scroll_down = "bar-auto-hide-set false"
+    scroll_up = "bar-auto-hide-set true"
+
+[brightness]
+enable_ddcutil = true
+
+[shell.panel]
+transparency_mode = "glass"
+
+[theme]
+mode = "dark"
+source = "wallpaper"
+wallpaper_scheme = "m3-rainbow"
+
+[wallpaper]
+directory = "/home/geodman/.local/share/wallpapers"
