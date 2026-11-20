@@ -46,6 +46,6 @@ theme = geodman
 font-size = 14
 font-family = "FiraCode Nerd Font"
 fullscreen = false
-maximize = true
+maximize = false
 background-opacity = 0.95
 # custom-shader = shaders/cursor_tail.glsl
