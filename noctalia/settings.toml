@@ -1,12 +1,14 @@
 config_version = 20
 
 [bar.default]
+auto_hide = true
 background_opacity = 0.8
 compositor_blur = false
 end = [ "tray", "network", "bluetooth", "volume", "brightness", "battery", "control-center", "session" ]
 icon_color = "primary"
 radius = 48
-start = [ "launcher", "wallpaper", "workspaces", "clipboard", "notifications", "media" ]
+reserve_space = false
+start = [ "launcher", "wallpaper", "wallhaven", "workspaces", "clipboard", "notifications", "media", "bar" ]
 widget_spacing = 10
 
     [bar.default.dead_zone.actions]
